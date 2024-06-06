@@ -1,0 +1,44 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Vehicle {
+  id               Int      @id @default(autoincrement())
+  owner            String
+  brand            String
+  model            String
+  yearManufactured DateTime
+  yearModel        DateTime
+  chassis          String
+  renavam          String
+  color            String
+  plate            String
+  driver           String
+  fleet            String
+  mdrv             String
+  fuel             String
+  status           Status
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+  type             String
+  images           Image[]
+}
+
+model Image {
+  id        Int      @id @default(autoincrement())
+  url       String
+  vehicleId Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  vehicle   Vehicle  @relation(fields: [vehicleId], references: [id])
+}
+
+enum Status {
+  ativo
+  inativo
+}

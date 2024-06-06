@@ -1,0 +1,82 @@
+form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 18px;
+  border: 1px solid rgba(0, 0, 0, 0.35);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+}
+
+/* Estilo para os campos de entrada */
+input[type="text"],
+input[type="date"],
+select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 18px;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.upload-input {
+  display: none;
+}
+
+/* .upload-icon {
+  width: 20px;
+  height: 20px;
+} */
+
+.upload-label {
+  margin: 20px 0 20px 0;
+}
+
+/* .upload-label:hover {
+  text-decoration: none;
+} */
+
+.file-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+button[type="submit"] {
+  background-color: #00A0F3;
+  color: #EFF7FE;
+  border: none;
+  border-radius: 18px;
+  padding: 14px 52px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+  transition: .7s;
+}
+
+button[type="button"] {
+  background-color: #EFF7FE;
+  color: #00A0F3;
+  border: none;
+  border-radius: 18px;
+  padding: 14px 52px;
+  cursor: pointer;
+}
+
+button[type="button"]:hover {
+  background-color: #FFB6C1;
+  color: #000;
+  transition: .7s;
+}
+
+.button-container {
+  display: flex;
+  gap: 16px;
+}
