@@ -6,12 +6,13 @@ export const createVehicle = async (data, images) => {
       ...data, 
       yearManufactured: new Date(data.yearManufactured),
       yearModel: new Date(data.yearModel),
+      installationDate: new Date(data.installationDate),
       images: {
-        create: images.map(item => {
+        create: images && images.length > 0 ? images.map(item => {
           return {
             url: item.filename
           }
-        })
+        }) : []
       }
     },
   });

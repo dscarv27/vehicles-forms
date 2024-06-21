@@ -15,6 +15,7 @@ export const vehicleValidation = yup.object({
   mdrv: yup.string().required(),
   fuel: yup.string().required(),
   type: yup.string().required(),
+  installationDate: yup.date().required(),
   status: yup.mixed().oneOf(['ativo', 'inativo']),
   images: yup.array().of(yup.object().shape({
     url: yup.string().url()

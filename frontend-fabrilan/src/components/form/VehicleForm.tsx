@@ -14,10 +14,10 @@ const schema = z.object({
   model: z.string().min(1, 'O Modelo é obrigatório').toLowerCase(),
   yearManufactured: z.string()
     .transform(value => new Date(value))
-    .refine(date => !isNaN(date.getTime()), { message: 'Ano fabricado é obrigatório' }),
+    .refine(date => !isNaN(date.getTime()), { message: 'O ano fabricado é obrigatório' }),
   yearModel: z.string()
     .transform(value => new Date(value))
-    .refine(date => !isNaN(date.getTime()), { message: 'Ano modelo é obrigatório' }),
+    .refine(date => !isNaN(date.getTime()), { message: 'O ano modelo é obrigatório' }),
   chassis: z.string().min(1, 'O Chassi é obrigatório').toLowerCase(),
   renavam: z.string().min(1, 'O Renavam é obrigatório').toLowerCase(),
   color: z.string().min(1, 'A Cor é obrigatória').toLowerCase(),
@@ -27,6 +27,9 @@ const schema = z.object({
   mdrv: z.string().min(1, 'O MDRV é obrigatório').toLowerCase(),
   fuel: z.string().min(1, 'A Gasolina é obrigatória').toLowerCase(),
   type: z.string().min(1, 'O Tipo de Monitoramento é obrigatório').toLowerCase(),
+  installationDate: z.string()
+  .transform(value => new Date(value))
+  .refine(date => !isNaN(date.getTime()), { message: 'A data de instalação é obrigatória' }),
   status: z.enum(['ativo', 'inativo']),
   images: z.array(z.instanceof(File)).min(1, 'A Imagem é obrigatória'),
 });
@@ -139,6 +142,11 @@ const VehicleForm: React.FC = () => {
         <label>Tipo de Monitoramento:</label>
         <input type='text' {...register('type')} />
         {errors.type && <span>{errors.type.message}</span>}
+      </div>
+      <div>
+        <label>Data de instalação:</label>
+        <input type="date" {...register('installationDate')} />
+        {errors.installationDate && <span>{errors.installationDate.message}</span>}
       </div>
       <div>
         <label>Status:</label>
